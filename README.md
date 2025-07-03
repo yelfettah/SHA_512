@@ -25,7 +25,6 @@ Ana fonksiyonların ekran görüntülerini aşağıda bulabilirsiniz:
 <br/>
 <img width="1440" alt="Ekran Resmi 2025-07-03 05 37 05" src="https://github.com/user-attachments/assets/22326bc5-a499-44b9-8d33-de477b0fe10a" />
 <br/>
-
 <img width="1440" alt="Ekran Resmi 2025-07-03 05 38 02" src="https://github.com/user-attachments/assets/3ad98b95-a29f-4950-ac97-a8f02d27eef7" />
 <br/>
 <img width="1440" alt="Ekran Resmi 2025-07-03 05 39 32" src="https://github.com/user-attachments/assets/96864918-ecaa-4dcf-bad6-4a6e9c9ac9ad" />
@@ -38,7 +37,7 @@ Ana fonksiyonların ekran görüntülerini aşağıda bulabilirsiniz:
 
 1. Bu repoyu klonlayın:
    ```sh
-   git clone https://github.com/kullaniciadi/SHA512App.git
+   git clone https://github.com/yelfettah/SHA_512.git
    cd SHA512App
    ```
 2. Gerekli .NET SDK (en az .NET 7) yüklü olmalı.
