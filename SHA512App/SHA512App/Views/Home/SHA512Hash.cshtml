@@ -1,0 +1,27 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="neon-card" style="margin-top: 60px; max-width: 600px; margin-left:auto; margin-right:auto;">
+    <h2><i class="fas fa-fingerprint"></i> SHA512 Özet Fonksiyonu</h2>
+    <form method="post" enctype="multipart/form-data">
+        <label class="label" for="shaInput">Metin Giriniz</label>
+        <textarea class="neon-input" id="shaInput" name="InputText" placeholder="Metin girin..."></textarea>
+        <label class="label" for="shaFile">veya Dosya Yükleyin</label>
+        <input type="file" class="neon-input" id="shaFile" name="InputFile" style="color:#00FF00; background:black; border:none;">
+        <button class="neon-btn" type="submit"><i class="fas fa-hashtag"></i> SHA512 Hesapla</button>
+    </form>
+    @if (ViewBag.Hash != null && !string.IsNullOrEmpty(ViewBag.Hash.ToString()))
+    {
+        <div class="alert mt-3" style="margin-top:24px; background:rgba(0,0,0,0.7);">
+            <strong>SHA512 Hash:</strong>
+            <button class="copy-btn" type="button" onclick="copyToClipboard('sha512hash')" title="Kopyala">📋</button>
+            <textarea class="textarea terminal" id="sha512hash" rows="3" readonly>@ViewBag.Hash</textarea>
+        </div>
+    }
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert error" style="margin-top:24px; background:rgba(0,0,0,0.7); border-color:#ff0033; color:#ff0033;">
+            <b>Hata:</b> @ViewBag.Error
+        </div>
+    }
+</div> 

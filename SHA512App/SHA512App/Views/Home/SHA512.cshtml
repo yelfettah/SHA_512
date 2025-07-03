@@ -1,0 +1,35 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container" style="max-width:600px; margin-top:40px;">
+    <h2 style="color:#00ff99; text-align:center; font-size:2.1rem; font-family:'Share Tech Mono',monospace; letter-spacing:1.5px; font-weight:700; margin-bottom:32px; text-shadow:none;">
+        <i class="fas fa-fingerprint" style="font-size:1.2em; vertical-align:middle;"></i> SHA512 Özet Fonksiyonu
+    </h2>
+    <div class="cyber-card" style="margin-bottom:28px; box-shadow:none; border:1.5px solid #00ff99;">
+        <form method="post" enctype="multipart/form-data">
+            <label class="cyber-form-label" for="shaInput">Metin Giriniz</label>
+            <textarea class="cyber-input" id="shaInput" name="InputText" rows="3" placeholder="Metin girin..." style="margin-bottom:14px; width:100%"></textarea>
+            <label class="cyber-form-label" for="shaFile">veya Dosya Yükleyin</label>
+            <input type="file" class="cyber-input" id="shaFile" name="InputFile" style="margin-bottom:14px; width:100%; color:#00FF00; background:black; border:none;">
+            <button class="cyber-btn" type="submit" style="width:100%; font-size:1.08rem; margin-top:6px;">
+                <i class="fas fa-hashtag"></i> SHA512 Hesapla
+            </button>
+        </form>
+    </div>
+    @if (ViewBag.Hash != null && !string.IsNullOrEmpty(ViewBag.Hash.ToString()))
+    {
+        <div class="cyber-card" style="background:rgba(0,255,0,0.03); border-color:#00ff99; box-shadow:none;">
+            <b style="color:#00ff99; font-size:1.05rem;">SHA512 Hash:</b>
+            <button class="copy-btn" type="button" onclick="copyToClipboard('sha512hash')" title="Kopyala">📋</button>
+            <div style="word-break:break-all; margin-top:8px; color:#e0ffe0; font-family:'Share Tech Mono',monospace;">
+                <textarea class="terminal" id="sha512hash" rows="3" readonly style="width:100%; background:#181818; color:#e0ffe0; border:1.5px solid #00ff99;">@ViewBag.Hash</textarea>
+            </div>
+        </div>
+    }
+    @if (ViewBag.Error != null)
+    {
+        <div class="cyber-card" style="background:rgba(255,0,0,0.04); border-color:#ff0033; color:#ff0033; box-shadow:none;">
+            <b>Hata:</b> @ViewBag.Error
+        </div>
+    }
+</div> 

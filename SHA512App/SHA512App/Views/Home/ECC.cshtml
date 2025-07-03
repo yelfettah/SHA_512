@@ -1,0 +1,58 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="max-width:600px; margin-top:40px;">
+    <h2 style="color:#00ff99; text-align:center; font-size:2.1rem; font-family:'Share Tech Mono',monospace; letter-spacing:1.5px; font-weight:700; margin-bottom:32px; text-shadow:none;">
+        <i class="fas fa-lock" style="font-size:1.2em; vertical-align:middle;"></i> Eliptik Eğri Kriptografisi (ECC)
+    </h2>
+    <div class="cyber-card" style="margin-bottom:28px; box-shadow:none; border:1.5px solid #00ff99;">
+        <form method="post" action="/Home/ECC">
+            <label class="cyber-form-label" for="plain">Şifrelenecek Metin:</label>
+            <textarea class="cyber-input" id="plain" name="PlainText" rows="3" placeholder="Şifrelenecek metni girin..." style="margin-bottom:14px; width:100%"></textarea>
+            <button class="cyber-btn" type="submit" style="width:100%; font-size:1.08rem; margin-top:6px;">
+                <i class="fas fa-lock"></i> Şifrele
+            </button>
+            <input type="hidden" name="eccAction" value="encrypt" />
+        </form>
+    </div>
+    <div class="cyber-card" style="margin-bottom:28px; box-shadow:none; border:1.5px solid #00ff99;">
+        <form method="post" action="/Home/ECC">
+            <label class="cyber-form-label" for="enc">Çözülecek Şifreli Metin:</label>
+            <textarea class="cyber-input" id="enc" name="EncryptedText" rows="3" placeholder="Şifreli metni girin..." style="margin-bottom:10px; width:100%"></textarea>
+            <label class="cyber-form-label" for="key">Private Key (Base64):</label>
+            <textarea class="cyber-input" id="key" name="PrivateKey" rows="2" placeholder="Private Key (Base64)" style="margin-bottom:14px; width:100%"></textarea>
+            <button class="cyber-btn" type="submit" style="width:100%; font-size:1.08rem; margin-top:6px;">
+                <i class="fas fa-lock-open"></i> Çöz
+            </button>
+            <input type="hidden" name="eccAction" value="decrypt" />
+        </form>
+    </div>
+    @if (ViewBag.Result != null)
+    {
+        <div class="cyber-card" style="background:rgba(0,255,0,0.03); border-color:#00ff99; box-shadow:none;">
+            <b style="color:#00ff99; font-size:1.05rem;">Sonuç:</b>
+            <div style="word-break:break-all; margin-top:8px; color:#e0ffe0; font-family:'Share Tech Mono',monospace;">@ViewBag.Result</div>
+            @if (ViewBag.PrivateKey != null)
+            {
+                <div style="margin-top:10px;">
+                    <b style="color:#5ee6b7;">Private Key:</b>
+                    <div style="word-break:break-all; font-size:0.95em;">@ViewBag.PrivateKey</div>
+                </div>
+            }
+            @if (ViewBag.PublicKey != null)
+            {
+                <div style="margin-top:10px;">
+                    <b style="color:#5ee6b7;">Public Key:</b>
+                    <div style="word-break:break-all; font-size:0.95em;">@ViewBag.PublicKey</div>
+                </div>
+            }
+        </div>
+    }
+    @if (ViewBag.Error != null)
+    {
+        <div class="cyber-card" style="background:rgba(255,0,0,0.04); border-color:#ff0033; color:#ff0033; box-shadow:none;">
+            <b>Hata:</b> @ViewBag.Error
+        </div>
+    }
+</div> 

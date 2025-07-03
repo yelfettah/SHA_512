@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SHA512App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SHA512App.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body style="background:#0a0a0a;">
+    <nav class="navbar">
+        <div class="navbar-brand"><i class="fas fa-fingerprint"></i> KRİPTOLOJİ</div>
+        <div class="navbar-menu">
+            <a href="/" class="nav-link"><i class="fas fa-home"></i> Ana Sayfa</a>
+            <a href="/Home/SHA512Hash" class="nav-link"><i class="fas fa-hashtag"></i> SHA512</a>
+            <a href="/Home/ECC" class="nav-link"><i class="fas fa-lock"></i> ECC</a>
+        </div>
+    </nav>
+    <div class="container" style="max-width:900px; margin:auto; padding:0 8px;">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
